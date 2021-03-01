@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<psalm
+    errorLevel="2"
+    resolveFromConfigFile="true"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+    errorBaseline="psalm-baseline.xml.dist"
+>
+    <projectFiles>
+        <directory name="src"/>
+        <directory name="tests"/>
+        <ignoreFiles>
+            <directory name="tests/Analyzers/ThrowingCode"/>
+            <file name="tests/Internal/ThrowingTestCase.php"/>
+            <directory name="tests/PsalmInternal"/>
+        </ignoreFiles>
+    </projectFiles>
+    <plugins>
+        <plugin filename="src/Hooks/StrictTypesHooks.php"/>
+        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
+    </plugins>
+    <issueHandlers>
+        <InternalMethod errorLevel="suppress"/>
+        <InternalClass errorLevel="suppress"/>
+        <InternalProperty errorLevel="suppress"/>
+
+        <ForbiddenCode errorLevel="suppress"/>
+        <PluginIssue name="GoodTypeFromDocblockIssue" errorLevel="suppress" />
+    </issueHandlers>
+</psalm>
