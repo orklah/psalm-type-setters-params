@@ -17,7 +17,7 @@ class TypeSettersHooks implements AfterFunctionLikeAnalysisInterface
     {
         $functionlike_storage = $event->getClasslikeStorage();
         //the function is a setter
-        if (stripos($functionlike_storage->cased_name, 'set') !== 0) {
+        if ($functionlike_storage->cased_name === null || stripos($functionlike_storage->cased_name, 'set') !== 0) {
             return true;
         }
         $params = $functionlike_storage->params;
