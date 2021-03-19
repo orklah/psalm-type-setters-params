@@ -6,8 +6,8 @@ use PhpParser\Node\Expr\BooleanNot;
 use PhpParser\Node\Expr\Empty_;
 use PhpParser\Node\Expr\Variable;
 use Psalm\FileManipulation;
-use Psalm\Plugin\EventHandler\AfterExpressionAnalysisInterface;
-use Psalm\Plugin\EventHandler\Event\AfterExpressionAnalysisEvent;
+use Psalm\Plugin\EventHandler\AfterFunctionLikeAnalysisInterface;
+use Psalm\Plugin\EventHandler\Event\AfterFunctionLikeAnalysisEvent;
 use Psalm\Type\Atomic;
 use function count;
 
